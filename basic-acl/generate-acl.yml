@@ -1,0 +1,11 @@
+---
+
+  - name: Generate ACL Configuration
+    hosts: all
+    connection: local
+    gather_facts: no
+
+    tasks:
+
+      - name: Create ACL Configuration
+        template: src=acl.j2 dest={{ inventory_hostname }}_ACL.cfg
