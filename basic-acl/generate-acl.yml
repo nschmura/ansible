@@ -7,5 +7,5 @@
 
     tasks:
 
-      - name: Create ACL Configuration
-        template: src=acl.j2 dest={{ inventory_hostname }}_ACL.cfg
+      - name: Create Extended ACL Configuration
+        template: src=extended-acl.j2 dest={{ inventory_hostname }}_ACL.cfg
