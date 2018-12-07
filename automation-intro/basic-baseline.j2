@@ -1,0 +1,15 @@
+service password-encryption
+hostname {{ host.hostname }}
+enable secret {{ host.enable }}
+username {{ host.username }} privilege 15 secret {{ host.adminpass }}
+
+logging trap informational
+{% for server in host.syslog %}
+logging host {{ server }}
+{% endfor %}
+
+ntp authentication-key 1 md5 {{ host.ntpkey }}
+ntp trusted-key 1
+{% for server in host.ntpserver %}
+ntp server {{ server }} key 1
+{% endfor %}
