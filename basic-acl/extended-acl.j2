@@ -1,4 +1,5 @@
-{% for a in ace %}
-{{ a.stance }} {{ a.protocol }} {{ a.srcaddr }} {% if a.srcport != None %}{{ 'eq'}} {{ a.srcport | default('') }}{% endif %} {{ a.dstaddr }} {% if a.dstport != None %}{{ 'eq' }} {{ a.dstport | default('') }}{% endif %} {% if a.log != None %}{{ 'log' }}{% endif %}
+{% for ace in extace %}
+
+{{ ace.stance }} {{ ace.protocol }} {{ ace.srcaddr }} {% if ace.srcport != None %}{{ 'eq'}} {{ ace.srcport | default('') }}{% endif %} {{ ace.dstaddr }} {% if ace.dstport != None %}{{ 'eq' }} {{ ace.dstport | default('') }}{% endif %} {% if ace.log != None %}{{ 'log' }}{% endif %}
 
 {% endfor %}

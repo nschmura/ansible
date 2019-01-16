@@ -1,0 +1,5 @@
+{% for ace in stdace %}
+
+{{ ace.stance }} {{ ace.srcaddr }} {{ ace.dstaddr }} {% if ace.log != None %}{{ 'log' }}{% endif %}
+
+{% endfor %}

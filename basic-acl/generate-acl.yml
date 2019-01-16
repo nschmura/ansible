@@ -6,6 +6,7 @@
     gather_facts: no
 
     tasks:
-
+      - name: Create Standard ACL configuration
+        template: src=standard-acl.j2 dest={{ inventory_hostname }}_StandardACL.cfg
       - name: Create Extended ACL Configuration
-        template: src=extended-acl.j2 dest={{ inventory_hostname }}_ACL.cfg
+        template: src=extended-acl.j2 dest={{ inventory_hostname }}_ExtendedACL.cfg

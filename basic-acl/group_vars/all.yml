@@ -1,17 +1,31 @@
 ---
-ace:
+# Below are variables for a standard ACL.
+# See below for what values to put in for each variable
+#  - stance: permit or deny
+#    srcaddr: Source network and inverse mask. If specifying a single host, use the 'host' keyword before address 
+#    dstaddr: Destination network and inverse mask. If specifying a single host, use the 'host' keyword before address
+#    log: yes if logging, otherwise leave blank
+# For multiple lines, add another group of variables
+stdace:
   - stance: permit
-    protocol: tcp
-    srcaddr: 10.10.10.0 0.0.0.255
-    srcport:  
-    dstaddr: 192.168.1.0 0.0.0.31
-    dstport: 80
-    log: log
+    srcaddr: 192.168.0.1 0.0.0.255
+    dstaddr: host 10.10.100.27
+    log: yes
 
+# Below are variables for an extended ACL.
+#  - stance: permit or deny
+#    protocol: ip, tcp, udp, igmp, etc.
+#    srcaddr: Source network and inverse mask. If specifying a single host, use the 'host' keyword before address
+#    srcport: Source port. Leave blank if not required
+#    dstaddr: Destination network and inverse mask. If specifying a single host, use the 'host' keyword before address
+#    dstport: Destination port. Leave blank if not required
+#    log: yes if logging, otherwise leave blank
+# For multiple lines, add another group of variables
+extace:
   - stance: deny
     protocol: udp
     srcaddr: 172.17.5.0 0.0.0.255
-    srcport: 50
+    srcport: 25
     dstaddr: 192.168.7.1 0.0.0.3
     dstport: 
     log:
